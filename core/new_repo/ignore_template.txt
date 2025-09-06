@@ -1,0 +1,55 @@
+# Arquivos e pastas a serem ignorados pelo CPY
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+.venv
+env/
+venv/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.coverage
+.vscode/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env
+dist/
+build/
+.parcel-cache/
+.next/
+.nuxt/
+
+# C
+*.o
+*.obj
+*.exe
+*.out
+*.dll
+*.so
+*.a
+*.lib
+build/
+
+# C#
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+*.cache
+*.log
+.vs/
+
+# Geral
+*.tmp
+*.log
+.DS_Store
+Thumbs.db
