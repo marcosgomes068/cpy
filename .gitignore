@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+
+# IDEs e editores
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos temporários
+*.tmp
+*.bak
+*.old
+*.orig
+*.save
+
+# Arquivos compactados
+*.zip
+*.tar.gz
+*.rar
+
+# Outros
+.env
+*.sqlite3
