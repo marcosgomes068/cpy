@@ -1,0 +1,8 @@
+# Arquivo de configuração do pacote (.mypkg)
+
+# Use este arquivo para definir propriedades do pacote ou ignorar diretórios.
+
+[C:\Users\Gabriel\Documents\GitHub\gitpy\src\inga-cfg]
+name = teste nwe
+version = 0.1.1
+description = teste nwe
