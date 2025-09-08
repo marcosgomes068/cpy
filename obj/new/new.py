@@ -26,7 +26,7 @@ def create():
     nome_repo = input("Digite o nome do novo repositório: ")
     
     # Pergunta sobre configurações adicionais
-    ign_cfg = input("adicionar .! e .mypkg ? (s/n): ")
+    ign_cfg = input("adicionar  e .mypkg ? (s/n): ")
     
     if ign_cfg.lower() == "s":
         # Cria repositório com arquivos de configuração

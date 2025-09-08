@@ -11,6 +11,7 @@ def mostrar_arvore(caminho):
         for f in files:
             tree.append(f"{subindent}{f}")
     return '\n'.join(tree)
+    
 
 # Exemplo de uso
 if __name__ == "__main__":   

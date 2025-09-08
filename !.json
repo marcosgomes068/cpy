@@ -1,0 +1,20 @@
+{
+    "pastas": [
+        "__pycache__",
+        "venv",
+        "env",
+        ".venv",
+        "build",
+        "dist",
+        "*.egg-info",
+        ".pytest_cache",
+        ".mypy_cache"
+    ],
+    "arquivos": [
+        ".env",
+        ".coverage",
+        ".DS_Store",
+        "Thumbs.db",
+        "*.db"
+    ]
+}

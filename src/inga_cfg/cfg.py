@@ -57,7 +57,7 @@ def atualizar_campo(lines, campo, novo_valor):
             return lines
     return lines
 
-def updt_cfg(caminho, nome_repo, descript):
+def updt_cfg(caminho):
     """Atualiza as configurações do repositório"""
     # Caminho do arquivo .mypkg
     cfg_path = os.path.join(caminho, '.mypkg')
@@ -96,48 +96,40 @@ def updt_cfg(caminho, nome_repo, descript):
 
 # adicionar o ".!"
 def adicionar_ign(caminho):
-    """Cria arquivo de configuração .! (iginore) para o repositório"""
+    """Cria arquivo de configuração !.json (ignore) para o repositório"""
+    import json
+    
     # Garante que a pasta existe
     os.makedirs(caminho, exist_ok=True)
 
-    # Caminho do arquivo .!
-    ignr_path = os.path.join(caminho, '.!')
+    # Caminho do arquivo !.json
+    ignr_path = os.path.join(caminho, '!.json')
 
-    # Conteúdo padrão do arquivo
-    conteudo = """__pycache__/
-*.py[cod]
-.env/
-venv/
-env/
-.venv/
-build/
-dist/
-*.egg-info/
-.coverage
-.pytest_cache/
-.mypy_cache/
-.DS_Store
-Thumbs.db
-"""
+    # Conteúdo padrão do arquivo em formato JSON
+    conteudo = {
+        "pastas": ["__pycache__", "venv", "env", ".venv", "build", "dist", "*.egg-info", ".pytest_cache", ".mypy_cache"],
+        "arquivos": [".env", ".coverage", ".DS_Store", "Thumbs.db", "*.db"]
+    }
 
-    # Cria/escreve o arquivo
+    # Cria/escreve o arquivo JSON
     with open(ignr_path, 'w', encoding='utf-8') as f:
-        f.write(conteudo)
+        json.dump(conteudo, f, indent=4, ensure_ascii=False)
 
-    print(f"Arquivo .! criado em: {ignr_path}")
+    print(f"Arquivo !.json criado em: {ignr_path}")
     return ignr_path
 
 if __name__ == "__main__":
-    adicionar_ign("C:\\CPY\\marcos")
+    caminho = "C:\\CPY\\teste"
+    adicionar_cfg(caminho, "teste", "teste")
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
     # Exemplo de uso
-    caminho = "C:\\Users\\Gabriel\\Documents\\GitHub\\gitpy\\src\\inga-cfg"
-    nome_repo = "teste"
-    descript = "teste"
+    #caminho = "C:\\Users\\Gabriel\\Documents\\GitHub\\gitpy\\src\\inga-cfg"
+    #nome_repo = "teste"
+    #descript = "teste"
     
     # Criar configuração
-    adicionar_cfg(caminho, nome_repo, descript)
+    #adicionar_cfg(caminho, nome_repo, descript)
     
     # Atualizar configuração
-    updt_cfg(caminho, nome_repo, descript)
+    #updt_cfg(caminho, nome_repo, descript)

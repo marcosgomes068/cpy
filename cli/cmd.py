@@ -4,13 +4,18 @@ from colorama import Fore, Style
 import os
 import sys
 
-# Adiciona o diretório utils ao path
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'utils')))
+# Adiciona o diretório raiz do projeto ao path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+# modulos internos
+from obj.new.new import create
 
 # Importações
 try:
     from obj.objt import novo_repositorio
     from obj.objt import salvar_projeto
+    from obj.objt import atualizar_repositorio
+    from prcs_cmd import navegador_arquivos
     IMPORT_SUCCESS = True
 except ImportError as e:
     print(f"{Fore.RED}Erro ao importar: {e}")
@@ -44,20 +49,16 @@ def cmd():
         if entrada.lower() in ['sair', 'exit', 'quit']:
             print("Encerrando o terminal. Até mais!")
             break
+
             
         if entrada.lower() == 'help':
             mostrar_ajuda_principal()
             continue
             
         if entrada.lower() == 'novo':
-            if IMPORT_SUCCESS:
-                try:
-                    novo_repositorio()
-                except Exception as e:
-                    print(f"{Fore.RED}Erro ao criar repositório: {e}")
-            else:
-                print(f"{Fore.RED}Funcionalidade não disponível")
+            novo_repositorio()
             continue
+            
             
         # Verifica se é um caminho válido
         if os.path.exists(entrada):
@@ -72,31 +73,21 @@ def cmd():
                 if comando == 'help':
                     mostrar_ajuda_path()
                     
-                elif comando == 'salvar':
-                    if IMPORT_SUCCESS:
-                        try:
-                            salvar_projeto()
-                        except Exception as e:
-                            print(f"{Fore.RED}Erro ao salvar projeto: {e}")
-                    else:
-                        print(f"{Fore.RED}Funcionalidade não disponível")
-                        
+                elif comando == 'salvar':             
+                    salvar_projeto(entrada)
+
                 elif comando == 'update':
-                    print("Funcionalidade de update ainda não implementada.")
+                    atualizar_repositorio(entrada)
 
                 elif comando == 'deletar':
                     print("Funcionalidade de deletar ainda não implementada.")
-
-                
 
                 elif comando == 'voltar':
                     break
                     
                 else:
                     print("Comando desconhecido. Digite 'help' para ajuda.")
-                    
-        else:
-            print(f"O caminho '{entrada}' não é válido. Digite 'help' para ajuda.")
+
 
 if __name__ == "__main__":
     cmd()

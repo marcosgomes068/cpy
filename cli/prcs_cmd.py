@@ -3,7 +3,7 @@ import os
 def get_emoji_arquivo(nome_arquivo):
     # Retorna emoji baseado na extensão do arquivo
     extensoes_emojis = {
-        # Código
+    # Código
     '.py': '🐍', '.js': '📜', '.ts': '🔵', '.html': '🌐', '.css': '🎨',
     '.json': '📋', '.xml': '🗂️', '.yml': '⚙️', '.yaml': '⚙️',
     '.java': '☕', '.c': '🔣', '.cpp': '💠', '.cs': '🖥️', '.go': '🐹',

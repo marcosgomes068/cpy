@@ -9,13 +9,13 @@ from src.inga_cfg.cfg import adicionar_cfg, adicionar_ign
 
 load_dotenv()
 
-def save():
+def save(caminho):
     # Código para atualizar os diretórios
     variavel_ambiente = os.getenv('base')
     print(f"{variavel_ambiente=}")
 
     # diretorio atual
-    pasta1 = os.getcwd()
+    pasta1 = caminho
     print(f"Diretório atual: {pasta1}")
     mostrar_arvore(pasta1)
 
@@ -64,4 +64,4 @@ def save():
 
 
 if __name__ == "__main__":
-    save()
+    save("C:\\Users\\Gabriel\\Documents\\GitHub\\cpy\\utils")
