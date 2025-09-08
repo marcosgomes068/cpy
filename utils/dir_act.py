@@ -14,6 +14,6 @@ def mostrar_arvore(caminho):
 
 # Exemplo de uso
 if __name__ == "__main__":   
-    caminho = os.getcwd()  # ou qualquer outro caminho desejado
-    arvore = mostrar_arvore()
-   
+    caminho = "C:\\Users\\Gabriel\\Documents\\GitHub\\cpy"  # ou qualquer outro caminho desejado
+    arvore = mostrar_arvore(caminho)
+    print(arvore)

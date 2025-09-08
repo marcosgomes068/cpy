@@ -5,6 +5,7 @@ from utils.list import listar_pastas
 from dotenv import load_dotenv
 from utils.dir_act import mostrar_arvore
 import shutil
+from src.inga_cfg.cfg import adicionar_cfg, adicionar_ign
 
 load_dotenv()
 
@@ -28,6 +29,8 @@ def save():
     # Limpar pasta2 antes de atualizar os diretórios
     for item in os.listdir(pasta_repo):
         item_path = os.path.join(pasta_repo, item)
+        if ".git" in item_path:
+            continue
         if os.path.isdir(item_path):
             shutil.rmtree(item_path)
         else:
@@ -41,14 +44,23 @@ def save():
     os.makedirs(pasta_repo, exist_ok=True)
     
     for root, dirs, files in os.walk(pasta1):  # percorre arquivos, pastas e subpastas
+        if ".git" in root:
+            continue
         for file in files:
             src_file = os.path.join(root, file)
+            if ".git" in src_file:
+                continue
             rel_path = os.path.relpath(root, pasta1)
             dest_dir = os.path.join(pasta_repo, rel_path)
             os.makedirs(dest_dir, exist_ok=True)
-            shutil.copy2(src_file, dest_dir)  # mantém metadata
-        # Não copie o diretório raiz diretamente!
+            shutil.copy2(src_file, dest_dir)
+            print(f"Copiado: {src_file} para {dest_dir}")
+    
+    # Adicionar arquivo de configuração
+    adicionar_ign(pasta_repo)
+    adicionar_cfg(pasta_repo, pasta2, "nenhuma descrição ainda")
 
+    
 
 
 if __name__ == "__main__":
