@@ -26,6 +26,7 @@ def mostrar_ajuda_principal():
     print(f"{Fore.CYAN}Comandos disponíveis:")
     print(f"{Fore.YELLOW}- Digite um caminho de pasta válido para trabalhar nela")
     print(f"{Fore.YELLOW}- 'novo' {Fore.RESET}para criar um novo repositório")
+    print(f"{Fore.YELLOW}- 'buscar' {Fore.RESET}para navegar e buscar pastas facilmente")
     print(f"{Fore.YELLOW}- 'help' {Fore.RESET}para mostrar esta ajuda")
     print(f"{Fore.YELLOW}- 'sair' {Fore.RESET}para encerrar o terminal")
 
@@ -58,6 +59,19 @@ def cmd():
         if entrada.lower() == 'novo':
             novo_repositorio()
             continue
+            
+        if entrada.lower() == 'buscar':
+            if IMPORT_SUCCESS:
+                caminho_selecionado = navegador_arquivos()
+                if caminho_selecionado:
+                    print(f"{Fore.GREEN}Pasta selecionada: {caminho_selecionado}")
+                    entrada = caminho_selecionado  # Define entrada para processar como caminho
+                else:
+                    print(f"{Fore.YELLOW}Nenhuma pasta selecionada.")
+                    continue
+            else:
+                print(f"{Fore.RED}Funcionalidade não disponível")
+                continue
             
             
         # Verifica se é um caminho válido

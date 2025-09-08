@@ -1,0 +1,4 @@
+# Ignorar arquivos e pastas comuns de Python
+__pycache__/
+.venv/
+
