@@ -15,7 +15,7 @@ try:
     from obj.objt import novo_repositorio
     from obj.objt import salvar_projeto
     from obj.objt import atualizar_repositorio
-    from prcs_cmd import navegador_arquivos
+    from cli.prcs_cmd import navegador_arquivos
     from obj.objt import excluir_arquivos
     IMPORT_SUCCESS = True
 except ImportError as e:

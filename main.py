@@ -1,16 +1,7 @@
-# uso facilitado
-from utils.dir_act import mostrar_arvore
-
-def terminal_chat():
-    while True:
-        user_input = input("Você: ")
-        if user_input.lower() in ['sair', 'exit', 'quit']:
-            print("Encerrando o chat. Até mais!")
-            break
-        
-            print("Comando não reconhecido. Tente novamente.")
-        
-
+# ponto de partida do programa
+from colorama import Fore, Style
+from cli.cmd import cmd
 
 if __name__ == "__main__":
-    terminal_chat()
+    print(f"{Fore.GREEN}Iniciando o programa...{Style.RESET_ALL}")
+    cmd()
