@@ -16,6 +16,7 @@ try:
     from obj.objt import salvar_projeto
     from obj.objt import atualizar_repositorio
     from prcs_cmd import navegador_arquivos
+    from obj.objt import excluir_arquivos
     IMPORT_SUCCESS = True
 except ImportError as e:
     print(f"{Fore.RED}Erro ao importar: {e}")
@@ -36,8 +37,8 @@ def mostrar_ajuda_path():
     print(f"{Fore.YELLOW}- 'salvar' {Fore.RESET}para salvar o projeto atual")
     print(f"{Fore.YELLOW}- 'voltar' {Fore.RESET}para voltar ao menu principal")
     print(f"{Fore.YELLOW}- 'help' {Fore.RESET}para mostrar esta ajuda")
-    print(f"{Fore.YELLOW}- 'update' {Fore.RESET}para atualizar o repositório (em breve)")
-    print(f"{Fore.YELLOW}- 'deletar' {Fore.RESET}para deletar o repositório (em breve)")
+    print(f"{Fore.YELLOW}- 'update' {Fore.RESET}para atualizar o repositório")
+    print(f"{Fore.YELLOW}- 'deletar' {Fore.RESET}para deletar o repositório")
 
 def cmd():
     print(f"{Fore.CYAN}Terminal cpy iniciado. Digite 'help' para ver os comandos.")
@@ -94,7 +95,8 @@ def cmd():
                     atualizar_repositorio(entrada)
 
                 elif comando == 'deletar':
-                    print("Funcionalidade de deletar ainda não implementada.")
+                    print("deletando")
+                    excluir_arquivos(entrada)
 
                 elif comando == 'voltar':
                     break

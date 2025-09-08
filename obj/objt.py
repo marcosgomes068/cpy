@@ -12,6 +12,9 @@ def atualizar_repositorio(caminho):
     from obj.updt.updt import updt
     updt(caminho)
 
+def excluir_arquivos(caminho):
+    from obj.remove.delet import delete
+    delete(caminho)
 
 # teste
 if __name__ == "__main__":
